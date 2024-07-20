@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Change text color */
+    font-size: 3em; /* Adjust font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
+    display: flex; /* Use flexbox to align letters */
+    margin-left: 300px;
+}
+.c{
+    color:rgb(255, 0, 60);
+}
+
+.particles span {
+    display: inline-block; /* Allow each letter to be animated individually */
+    opacity: 0; /* Start with letters hidden */
+    transform: translateY(0); /* Initial position */
+    animation: wave 1s infinite; /* Apply wave animation */
+}
+
+@keyframes wave {
+    0% {
+        opacity: 0; /* Fade out */
+        transform: translateY(0); /* Initial position */
+    }
+    100% {
+        opacity: 1; /* Fade in */
+        transform: translateY(-20px); /* Jump up */
+    }
+}
+body.fade-out {
+    opacity: 0; /* Fade out */
+    transition: opacity 1s ease; /* Smooth transition */
+}
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%); /* Center the video */
+}
+
+.particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    z-index: 2; /* Ensure text is above the video */
+    color: white; /* Change text color */
+    text-align: center; /* Center text */
+    font-size: 3em; /* Adjust font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for better visibility */
+    width:100%;
+}

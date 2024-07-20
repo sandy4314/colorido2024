@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLORIDO 2K24!!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+</head>
+<body>
+
+    <div class="main-page">
+        <div class="main-data">
+            <div>
+                <p class="main1"><span class="clg">RVR&JC</span> Presents</p>
+                <h1 class="colorido">COLORIDO 2<span class='colorido-span'>K</span>24!!</h1>
+                <h2 class="fest">COLLEGE FEST</h2>
+                <h2 class="invited">All Are Invited!</h2>
+            </div>
+            <div class="timings">
+                <p><i class="fa-regular fa-calendar-days icon"></i>Feb 13,14</p>
+                <p><i class="fa-regular fa-clock icon"></i>10AM-5PM</p>
+                <p><i class="fa-solid fa-location-dot icon"></i>Open Air Theatre</p>
+            </div>
+
+        </div>
+        <div class="main-form">
+            <div class="form-info">
+                <h1 class="form-quote1">Join us for a day of fun, laughter, and memories!</h1>
+                
+            </div>
+            <div class="form-register">
+                <h2>Register To Attend RVR&JC College Fest</h2>
+              
+            
+            
+            <form name="submit-to-google-sheet">
+                <p><input type="text" placeholder="Enter your name" name="Name" id='Name'required></p>
+                <p><input type="text" placeholder="Enter college name" name="College" id='College'required></p>
+                <p><input type="email" placeholder="Enter your Email" name="Email" id='Email'required></p>
+                <p><button type='submit' class="register-button" id="register-button" onclick="submitForm()">Register</button></p>
+                <p><a href="index1.html" class="already">Already registered?</a></p>
+                
+            </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            const name = document.getElementById('Name').value;
+            const email = document.getElementById('Email').value;
+            const college = document.getElementById('College').value;
+
+            if (name && email && college) {
+                // Redirect to the new page
+                window.location.href = "index1.html";
+            } else {
+                alert('All fields are required!');
+            }
+            form.reset()
+        }
+       
+    </script>
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyNnJesHsH6Z7xd3QJKUKwE56-7nsvA-fgFDgiZEuMQJP7mEkWpbUi52eCL5wj6LJsnDg/exec'
+
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
